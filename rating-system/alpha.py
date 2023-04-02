@@ -4,15 +4,15 @@ import requests
 api_endpoint = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
 api_params = {
     "start": "1",
-    "limit": "10",
-    "convert": "USD"
+    "limit": "20",
+    "convert": "INR"
 }
 
 # Define the criteria and weights
 criteria_weights = {
     "Market Capitalization": 0.3,
     "Trading Volume": 0.2,
-    "Price Performance": 0.2,
+    "Price Performance": 0.9,
 }
 
 # Define a function to calculate the score for a cryptocurrency
@@ -32,9 +32,11 @@ data = response.json()
 cryptocurrencies = {}
 for i, crypto_data in enumerate(data["data"]):
     crypto_name = crypto_data["name"]
-    market_cap = crypto_data["quote"]["USD"]["market_cap"]
-    volume = crypto_data["quote"]["USD"]["volume_24h"]
-    price_change_pct = crypto_data["quote"]["USD"]["percent_change_24h"]
+    market_cap1 = crypto_data["quote"]["INR"]["market_cap"]
+    volume1 = crypto_data["quote"]["INR"]["volume_24h"]
+    market_cap = market_cap1/volume1
+    volume = volume1/market_cap1
+    price_change_pct = crypto_data["quote"]["INR"]["percent_change_24h"]
     scores = [market_cap, volume, price_change_pct]
     print(scores)
     cryptocurrencies[crypto_name] = {"scores": scores}
