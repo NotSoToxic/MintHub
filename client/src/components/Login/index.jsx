@@ -68,7 +68,7 @@ const Login = () => {
 						<Link to =""><button type="button" className={styles.white_btn}>
 							Forgot Password?
 						</button></Link>
-						<button type="submit" className={styles.green_btn}>
+						<button type="submit" onclick className={styles.green_btn}>
 							Log in
 						</button>
 					</form>
