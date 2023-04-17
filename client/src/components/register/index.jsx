@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -11,6 +11,7 @@ const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
+	const [msg, setMsg] = useState("");
 	const [showPassword, setShowPassword] = useState(false);// state variable to toggle password visibility 
 	const navigate = useNavigate();
 
@@ -23,8 +24,7 @@ const Signup = () => {
 		try {
 			const url = "http://localhost:8080/api/users";
 			const { data: res } = await axios.post(url, data);
-			navigate("/login");
-			console.log(res.message);
+			setMsg(res.message);
 		} catch (error) {
 			if (
 				error.response &&
@@ -99,6 +99,7 @@ const Signup = () => {
 						</div>
 						
 						{error && <div className={styles.error_msg}>{error}</div>}
+						{msg && <div className={styles.success_msg}>{msg}</div>}
 						<button type="submit" className={styles.green_btn}>
 							Sign Up
 						</button>

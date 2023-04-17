@@ -65,9 +65,11 @@ const Login = () => {
                         </button>
 						</div>
 						{error && <div className={styles.error_msg}>{error}</div>}
-						<Link to =""><button type="button" className={styles.white_btn}>
+						<Link to ="/ForgotPassword">
+							<button type="button" className={styles.white_btn}>
 							Forgot Password?
-						</button></Link>
+						</button>
+						</Link>
 						<button type="submit" onclick className={styles.green_btn}>
 							Log in
 						</button>
