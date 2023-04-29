@@ -89,11 +89,11 @@ export const Signup = () => {
 							className={styles.input}
 						/>
 						<button
-                            type="button"
-                            className={styles.password_toggle}
-                            onClick={() => setShowPassword(!showPassword)}>
-                            {showPassword ? "❌" : "👁️"}
-                        </button>
+                            			type="button"
+                           			className={styles.password_toggle}
+                            			onClick={() => setShowPassword(!showPassword)}>
+                           			{showPassword ? "❌" : "👁️"}
+                       				</button>
 						</div>
 						
 						{error && <div className={styles.error_msg}>{error}</div>}
