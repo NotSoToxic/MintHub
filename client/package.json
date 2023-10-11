@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://notsotoxic.github.io/WebDev-Project-beta/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -57,6 +58,8 @@
     "web3": "^1.9.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "postinstall": "patch-package",
     "start": "react-scripts start",
     "build": "react-scripts build",
